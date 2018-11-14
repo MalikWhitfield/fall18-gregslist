@@ -5,17 +5,30 @@ let _autosService = new AutosService()
 
 export default class AutosController {
 
+  constructor() {
+    _autosService.getAutos(this.showAutos)
+  }
+
   showAutos() {
     console.log("autobots assemble")
-    let autos = _autosService.getAutos()
+    let autos = _autosService.autos
     let template = ""
     autos.forEach(auto => {
       template += `
-        <div class="col card">
-          <img src="${auto.img}">
-          <h5>${auto.make} - ${auto.model} ${auto.year}</h5>
-          <p>Miles: ${auto.miles}</p>
-          <p>Price: ${auto.price}</p>
+        <div class="col-sm-4 my-1 card">
+          <div class="">
+            <img class="card-img-top" src="${auto.imgUrl}">
+            <div class="card-body">
+              <h5 class="card-title">${auto.make} - ${auto.model} ${auto.year}</h5>
+              <div class="card-text">
+                <p>Price: ${auto.price}</p>
+                <p>${auto.description}</p>
+                <div>
+                  <i class="fa fa-fw fa-trash action muted" onclick="app.controllers.autosController.destroyAuto('${auto._id}')"></i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       `
     })
@@ -29,14 +42,16 @@ export default class AutosController {
       make: form.make.value,
       model: form.model.value,
       year: form.year.value,
-      miles: form.miles.value,
       price: form.PRICE.value,
       description: form.description.value,
-      img: form.img.value
+      imgUrl: form.imgUrl.value
     }
-    _autosService.addAuto(formData)
-    this.showAutos()
+    _autosService.addAuto(formData, this.showAutos)
     form.reset()
+  }
+
+  destroyAuto(id) {
+    _autosService.destroyAuto(id, this.showAutos)
   }
 
 }

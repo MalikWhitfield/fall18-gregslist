@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>GregsList</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,7 +20,7 @@
       <button class="btn btn-primary">Jobs</button>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="row" id="main-content">
         Choose a category to start buying stuff in
       </div>
@@ -38,16 +40,12 @@
         <input type="number" name="year" />
       </div>
       <div class="form-group">
-        <label for="miles">Mile:</label>
-        <input type="number" name="miles" />
-      </div>
-      <div class="form-group">
         <label for="PRICE">Price:</label>
         <input type="number" name="PRICE" />
       </div>
       <div class="form-group">
-        <label for="img">Image:</label>
-        <input type="url" name="img" />
+        <label for="imgUrl">Image:</label>
+        <input type="url" name="imgUrl" />
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
@@ -60,6 +58,7 @@
   </div>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="app/main.js" type="module"></script>
 
 
