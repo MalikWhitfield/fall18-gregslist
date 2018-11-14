@@ -21,6 +21,7 @@ https://bcw-gregslist.herokuapp.com/api/cars
 
 All cars must look like: 
 
+```javascript
 var car = {
 
   make: "Ford",
@@ -36,6 +37,7 @@ var car = {
   description: "This one is optional"
 
 }
+```
 
 ## Jobs
 
@@ -43,6 +45,7 @@ https://bcw-gregslist.herokuapp.com/api/jobs
 
 All jobs look like:
 
+```javascript
 var job = {
 
 company: "Microsoft",
@@ -56,6 +59,7 @@ rate: 159,
 description: "This one is optional"
 
 }
+```
 
 ## Houses
 
@@ -63,6 +67,7 @@ https://bcw-gregslist.herokuapp.com/api/houses
 
 All houses look like:
 
+```javascript
 var house = {
 
 bedrooms: 4,
@@ -80,5 +85,6 @@ price: 200000,
 description: "This one is optional"
 
 }
+```
 
 Build an interface that allows users to view, add and remove postings. Postings should be organized by type.
