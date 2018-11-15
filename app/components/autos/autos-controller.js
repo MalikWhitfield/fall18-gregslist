@@ -5,7 +5,9 @@ let _autosService = new AutosService()
 
 export default class AutosController {
 
-  constructor() {
+  constructor() { }
+
+  showAutosButton() {
     _autosService.getAutos(this.showAutos)
   }
 
@@ -32,6 +34,33 @@ export default class AutosController {
         </div>
       `
     })
+    template += `<form onsubmit="app.controllers.autosController.addAuto(event)">
+      <div class="form-group">
+        <label for="make">Make</label>
+        <input type="text" name="make" />
+      </div>
+      <div class="form-group">
+        <label for="model">Model:</label>
+        <input type="text" name="model" />
+      </div>
+      <div class="form-group">
+        <label for="year">Year:</label>
+        <input type="number" name="year" />
+      </div>
+      <div class="form-group">
+        <label for="PRICE">Price:</label>
+        <input type="number" name="PRICE" />
+      </div>
+      <div class="form-group">
+        <label for="imgUrl">Image:</label>
+        <input type="url" name="imgUrl" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea type="text" name="description"></textarea>
+      </div>
+      <button type="submit">Add Auto</button>
+    </form>`
     document.getElementById('main-content').innerHTML = template
   }
 
